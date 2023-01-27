@@ -248,6 +248,10 @@ const getDashboard = (queryParams) => {
       let conditionHealthy = 0;
       let conditionDisabilities = 0;
       let conditionDead = 0;
+      let parturitionNormal = 0;
+      let parturitionCaesar = 0;
+      let parturitionWaterbirth = 0;
+      let parturitionToolAssisted = 0;
       let Male = 0;
       let Female = 0;
       let Months = [
@@ -316,6 +320,10 @@ const getDashboard = (queryParams) => {
         } else {
           Male += 1;
         }
+        if (data.parturition === "Normal") parturitionNormal += 1;
+        if (data.parturition === "Caesar") parturitionCaesar += 1;
+        if (data.parturition === "Waterbirth") parturitionWaterbirth += 1;
+        if (data.parturition === "Tool Assisted") parturitionToolAssisted += 1;
         Months.forEach((listMonth) => {
           let tempMonth = "";
           if (getMonth === "1") tempMonth = "Jan";
@@ -344,6 +352,10 @@ const getDashboard = (queryParams) => {
         conditionHealthy,
         conditionDisabilities,
         conditionDead,
+        parturitionNormal,
+        parturitionCaesar,
+        parturitionWaterbirth,
+        parturitionToolAssisted,
         avgGestationalAge,
         Months,
       };
