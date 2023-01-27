@@ -250,19 +250,53 @@ const getDashboard = (queryParams) => {
       let conditionDead = 0;
       let months = [
         {
-          1: 0,
+          name: "Jan",
+          total: 0,
         },
-        { 2: 0 },
-        { 3: 0 },
-        { 4: 0 },
-        { 5: 0 },
-        { 6: 0 },
-        { 7: 0 },
-        { 8: 0 },
-        { 9: 0 },
-        { 10: 0 },
-        { 11: 0 },
-        { 12: 0 },
+        {
+          name: "Feb",
+          total: 0,
+        },
+        {
+          name: "Mar",
+          total: 0,
+        },
+        {
+          name: "April",
+          total: 0,
+        },
+        {
+          name: "Mei",
+          total: 0,
+        },
+        {
+          name: "Juni",
+          total: 0,
+        },
+        {
+          name: "Juli",
+          total: 0,
+        },
+        {
+          name: "Agust",
+          total: 0,
+        },
+        {
+          name: "Sep",
+          total: 0,
+        },
+        {
+          name: "Okt",
+          total: 0,
+        },
+        {
+          name: "Nov",
+          total: 0,
+        },
+        {
+          name: "Des",
+          total: 0,
+        },
       ];
       result.rows.forEach((data) => {
         // GestationalAge.push(data.gestational_age);
@@ -278,8 +312,21 @@ const getDashboard = (queryParams) => {
           getMonth = data.to_char.split(" ")[0].split("/")[1];
         }
         months.forEach((listMonth) => {
-          if (parseInt(Object.keys(listMonth)) === parseInt(getMonth)) {
-            listMonth[getMonth] += 1;
+          let tempMonth = "";
+          if (getMonth === "1") tempMonth = "Jan";
+          if (getMonth === "2") tempMonth = "Feb";
+          if (getMonth === "3") tempMonth = "Mar";
+          if (getMonth === "4") tempMonth = "April";
+          if (getMonth === "5") tempMonth = "Mei";
+          if (getMonth === "6") tempMonth = "Juni";
+          if (getMonth === "7") tempMonth = "Juli";
+          if (getMonth === "8") tempMonth = "Agust";
+          if (getMonth === "9") tempMonth = "Sep";
+          if (getMonth === "10") tempMonth = "Okt";
+          if (getMonth === "11") tempMonth = "Nov";
+          if (getMonth === "12") tempMonth = "Des";
+          if (listMonth.name === tempMonth) {
+            listMonth.total += 1;
           }
         });
       });
