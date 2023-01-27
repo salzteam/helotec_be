@@ -1,6 +1,6 @@
 module.exports = {
   body: (...allowedKeys) => {
-    return (req, res, next) => {
+    return (req, _, next) => {
       const { body } = req;
       const sanitizedKey = Object.keys(body).filter((key) =>
         allowedKeys.includes(key)
@@ -14,7 +14,7 @@ module.exports = {
     };
   },
   params: (...allowedKeys) => {
-    return (req, res, next) => {
+    return (req, _, next) => {
       const { params } = req;
       const sanitizedKey = Object.keys(params).filter((key) =>
         allowedKeys.includes(key)
@@ -28,5 +28,3 @@ module.exports = {
     };
   },
 };
-
-// validate.body({title: string}, {author: string})

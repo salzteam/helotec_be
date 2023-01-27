@@ -248,7 +248,9 @@ const getDashboard = (queryParams) => {
       let conditionHealthy = 0;
       let conditionDisabilities = 0;
       let conditionDead = 0;
-      let months = [
+      let Male = 0;
+      let Female = 0;
+      let Months = [
         {
           name: "Jan",
           total: 0,
@@ -299,9 +301,7 @@ const getDashboard = (queryParams) => {
         },
       ];
       result.rows.forEach((data) => {
-        // GestationalAge.push(data.gestational_age);
         GestationalAge += data.gestational_age;
-        // console.log(data);
         if (data.status === "Healthy") conditionHealthy += 1;
         if (data.status === "Disabilities") conditionDisabilities += 1;
         if (data.status === "Dead") conditionDead += 1;
@@ -311,7 +311,12 @@ const getDashboard = (queryParams) => {
         } else {
           getMonth = data.to_char.split(" ")[0].split("/")[1];
         }
-        months.forEach((listMonth) => {
+        if (data.gender_baby === "Perempuan") {
+          Female += 1;
+        } else {
+          Male += 1;
+        }
+        Months.forEach((listMonth) => {
           let tempMonth = "";
           if (getMonth === "1") tempMonth = "Jan";
           if (getMonth === "2") tempMonth = "Feb";
@@ -334,11 +339,13 @@ const getDashboard = (queryParams) => {
       const avgGestationalAge = GestationalAge / result.rowCount;
       const Dashboard = {
         TotalBaby,
+        Male,
+        Female,
         conditionHealthy,
         conditionDisabilities,
         conditionDead,
         avgGestationalAge,
-        months,
+        Months,
       };
       resolve({ statusCode: 200, Dashboard });
     });
