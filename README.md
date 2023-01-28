@@ -68,7 +68,7 @@ $ npm run dev
 | Endpoint                     |      Method      | Info         | Remark                                |
 | ---------------------------- | :--------------: | :----------- | :------------------------------------ |
 | /data/addData                    | `POST`  | Data         | Add Data                |
-| /data/search                   |      `GET` `PATCH`       | Data         | Get Search                        |                |
+| /data/search                   |      `GET`       | Data         | Get Search                        |                |
 | /data/dashboard            |      `GET`       | Data | Get Dashboard |          |
 
 
