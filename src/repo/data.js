@@ -122,7 +122,7 @@ const get = (queryParams) => {
     } = queryParams;
     let link = ``;
     let queryLimit = `;`;
-    let querySearch = `select m.id, m."name", m.age, g."name" as gender_baby, b.weight, b.long, mb.gestational_age, p."name" as parturition, c.status, TO_CHAR(mb."date", 'DD/MM/YYYY') as tanggal, TO_CHAR(mb."date", 'hh:mi:ss') as jam from mothers_babys mb left join mothers m on mb.mother_id = m.id join babys b on mb.baby_id = b.id join gender g on b.gender_id = g.id join "condition" c on mb.condition_id = c.id join parturition p on mb.parturition_id = p.id`;
+    let querySearch = `select m.id, m."name", m.age, g."name" as gender_baby, b.weight, b.long, mb.gestational_age, p."name" as parturition, c.status, TO_CHAR(mb."date", 'DD/MM/YYYY') as tanggal, TO_CHAR(mb."date", 'hh:mi') as jam from mothers_babys mb left join mothers m on mb.mother_id = m.id join babys b on mb.baby_id = b.id join gender g on b.gender_id = g.id join "condition" c on mb.condition_id = c.id join parturition p on mb.parturition_id = p.id`;
     if (day) {
       querySearch += ` WHERE EXTRACT(DAY FROM mb."date") = ${day}`;
       link += `day=${day}&`;
