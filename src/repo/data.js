@@ -222,6 +222,7 @@ const get = (queryParams) => {
 
         resolve({
           statusCode: 200,
+          page: page,
           totalData: getData.rowCount,
           totalPage: Math.ceil(getData.rowCount / limit),
           next: resNext,
