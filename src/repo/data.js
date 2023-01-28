@@ -306,9 +306,9 @@ const getDashboard = (queryParams) => {
       ];
       result.rows.forEach((data) => {
         GestationalAge += data.gestational_age;
-        if (data.status === "Healthy") conditionHealthy += 1;
-        if (data.status === "Disabilities") conditionDisabilities += 1;
-        if (data.status === "Dead") conditionDead += 1;
+        if (data.status === "Sehat") conditionHealthy += 1;
+        if (data.status === "Cacat") conditionDisabilities += 1;
+        if (data.status === "Meninggal") conditionDead += 1;
         let getMonth = "";
         if (data.to_char.split(" ")[0].split("/")[1].split("")[0] === "0") {
           getMonth = data.to_char.split(" ")[0].split("/")[1].split("")[1];
@@ -323,7 +323,7 @@ const getDashboard = (queryParams) => {
         if (data.parturition === "Normal") parturitionNormal += 1;
         if (data.parturition === "Caesar") parturitionCaesar += 1;
         if (data.parturition === "Waterbirth") parturitionWaterbirth += 1;
-        if (data.parturition === "Tool Assisted") parturitionToolAssisted += 1;
+        if (data.parturition === "Dibantu Alat") parturitionToolAssisted += 1;
         Months.forEach((listMonth) => {
           let tempMonth = "";
           if (getMonth === "1") tempMonth = "Jan";
