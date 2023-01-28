@@ -345,6 +345,7 @@ const getDashboard = (queryParams) => {
       });
       const TotalBaby = result.rowCount;
       const avgGestationalAge = GestationalAge / result.rowCount;
+      const fixedAvg = avgGestationalAge.toFixed(2);
       const Dashboard = {
         TotalBaby,
         Male,
@@ -356,7 +357,7 @@ const getDashboard = (queryParams) => {
         parturitionCaesar,
         parturitionWaterbirth,
         parturitionToolAssisted,
-        avgGestationalAge,
+        fixedAvg,
         Months,
       };
       resolve({ statusCode: 200, Dashboard });
