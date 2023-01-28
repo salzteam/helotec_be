@@ -2,6 +2,7 @@ const db = require("../config/db");
 
 const create = (body) => {
   return new Promise((resolve, reject) => {
+    console.log(body);
     const {
       mother_name,
       mother_age,
